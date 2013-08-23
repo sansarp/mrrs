@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  description: MyText
+  start_time: 2013-08-23 16:57:39
+  end_time: 2013-08-23 16:57:39
+  booking_status: false
+  room_id: 
+  user_id: 
+
+two:
+  description: MyText
+  start_time: 2013-08-23 16:57:39
+  end_time: 2013-08-23 16:57:39
+  booking_status: false
+  room_id: 
+  user_id: 

@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130823041419) do
+ActiveRecord::Schema.define(version: 20130823111239) do
+
+  create_table "bookings", force: true do |t|
+    t.text     "description"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.boolean  "booking_status"
+    t.integer  "room_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bookings", ["room_id"], name: "index_bookings_on_room_id", using: :btree
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
 
   create_table "rooms", force: true do |t|
     t.string   "name"
@@ -19,6 +33,7 @@ ActiveRecord::Schema.define(version: 20130823041419) do
     t.integer  "capacity"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "status"
   end
 
   create_table "users", force: true do |t|
@@ -34,6 +49,7 @@ ActiveRecord::Schema.define(version: 20130823041419) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
