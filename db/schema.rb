@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130823111239) do
+ActiveRecord::Schema.define(version: 20130826093436) do
 
   create_table "bookings", force: true do |t|
     t.text     "description"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.boolean  "booking_status"
     t.integer  "room_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
   add_index "bookings", ["room_id"], name: "index_bookings_on_room_id", using: :btree
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20130823111239) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin"
+    t.string   "name"
+    t.string   "position"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
