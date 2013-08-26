@@ -6,9 +6,9 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: <<your databasename here>>
-  username: <<your username here>>
-  password: <<your password here>>
+  database: mrrsdev
+  username: root
+  password: fhf
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -17,9 +17,9 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: <<your databasename here>>
-  username: <<your username here>>
-  password: <<your password here>>
+  database: mrrstest
+  username: root
+  password: fhf
   socket: /var/run/mysqld/mysqld.sock
 
 production:

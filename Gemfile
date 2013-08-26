@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem "therubyracer"
 gem 'less-rails', '>= 2.3.2' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 
@@ -27,6 +27,7 @@ group :test do
 	gem 'capybara'
 	gem 'launchy'
 	gem 'selenium-webdriver'
+	gem 'shoulda-matchers' 
 end
 
 gem 'devise'
