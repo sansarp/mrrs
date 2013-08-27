@@ -1,4 +1,5 @@
 Mrrs::Application.configure do
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -25,6 +26,17 @@ Mrrs::Application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  config.action_mailer.default_url_options = { :host => 'mrrs.dev:3000' }
+  #config.action_mailer.default_url_options = { :host => 'mrrs.dev:3000' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.assets.debug = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'gmail.com',
+    :user_name            => 'username',
+    :password             => 'password',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  }
+
 end
