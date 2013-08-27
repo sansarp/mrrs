@@ -5,6 +5,7 @@ gem 'less-rails', '>= 2.3.2' #Sprockets (what Rails 3.1 uses for its asset pipel
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
+gem 'simple_form'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
