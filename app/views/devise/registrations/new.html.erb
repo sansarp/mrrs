@@ -4,13 +4,15 @@
   <%= devise_error_messages! %>
 
   <div><%= f.label :name %><br />
-  	<%= f.text_field :name, :autofocus => true%></div>
+  <%= f.text_field :name, :autofocus => true%></div>
+
+  <div><%= f.label :position %><br />
+  <%= f.text_field :position%></div>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :placeholder => 'yourname@lftechnology.com' %></div>
 
-<div><%= f.label :position %><br />
-  	<%= f.text_field :position%></div>
+
 
   <div><%= f.label :password %><br />
   <%= f.password_field :password %></div>
