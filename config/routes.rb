@@ -13,7 +13,8 @@ Mrrs::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   resources :rooms
- root 'rooms#index'
+  resources :bookings
+ root 'bookings#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
