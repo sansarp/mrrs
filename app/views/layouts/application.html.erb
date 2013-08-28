@@ -40,10 +40,14 @@
 
     <div class="navbar navbar-fluid-top">
       <div class="navbar-inner">
+        <div class="brand_lf">
+            <%= link_to 'Meeting Room Reservation System', '/' %>
+          </div>
           <%= link_to image_tag("/images/logo.png", alt: "LF MRRS"), '/' %>
-          <a class="brand_lf" href="/">LF MRRS</a>
           <% if user_signed_in? %>
-            <a class="signout_link"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete,data: { confirm: 'Really??' },title: "sign out"%></a>
+          <div class = "signout_link">  
+            <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete,data: { confirm: 'Really??' },title: "sign out"%>
+          </div>
           <% end %>
 
       </div>
