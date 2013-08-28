@@ -26,7 +26,7 @@ Mrrs::Application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  #config.action_mailer.default_url_options = { :host => 'mrrs.dev:3000' }
+  config.action_mailer.default_url_options = { :host => 'mrrs.dev:3000' }
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.assets.debug = true
   config.action_mailer.delivery_method = :smtp
@@ -34,8 +34,8 @@ Mrrs::Application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :domain               => 'gmail.com',
-    :user_name            => 'username',
-    :password             => 'password',
+    :user_name            => 'connect.subash',
+    :password             => '',
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
 
