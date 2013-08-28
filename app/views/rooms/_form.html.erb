@@ -9,6 +9,7 @@
         :item_wrapper_class => 'inline',
         :checked => @room.status == 1? true : false,
         # :default => @room.status = true,
+        :required => true,
         :as => :radio %>
 	<%= f.submit 'Save', :class => "btn btn-primary" %>
 	
