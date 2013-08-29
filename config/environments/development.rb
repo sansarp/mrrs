@@ -38,5 +38,5 @@ Mrrs::Application.configure do
     :password             => '',
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
-
+  config.time_zone = 'Kathmandu'
 end
