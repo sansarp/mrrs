@@ -1,0 +1,14 @@
+Here are the bookings for Room 2!!
+<table class="table table-hover">
+<th>S.no</th>
+<th>Start Time</th> 
+<th>End Time</th>
+	
+	<% @room2.each_with_index do |room, i| %>
+  <tr>
+  	<td><%= i+1 %></td>
+    <td><%= room.start_time %></td>
+    <td><%= room.end_time %></td>
+  </tr>
+  <% end %>
+</table>
