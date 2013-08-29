@@ -1,10 +1,5 @@
 class RoomsController < ApplicationController
-
-before_filter :auth_user
-
-  def auth_user
-    redirect_to new_user_session_url unless user_signed_in?
-  end
+ before_filter :authenticate_user!
 
   def index
   	@rooms = Room.all

@@ -18,7 +18,7 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 RSpec.configure do |config|
 
 #clean database before new eg. i.e before new 'it'
-  RSpec.configure do |config|
+  
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
@@ -33,7 +33,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-end
+
 # Warden test helper for feature test
   include Warden::Test::Helpers
   Warden.test_mode!
