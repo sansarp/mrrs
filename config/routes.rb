@@ -7,14 +7,15 @@ Mrrs::Application.routes.draw do
   #            :controllers => {
   #             :registrations => "registrations"
   #            }
-  devise_for :users
+  devise_for :users, :controllers => {:sessions => "sessions"}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   resources :rooms
   resources :bookings
- root 'bookings#index'
+ # root 'bookings#index'
+ root 'rooms#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
