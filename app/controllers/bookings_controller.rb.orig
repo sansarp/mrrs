@@ -1,7 +1,11 @@
 class BookingsController < ApplicationController
+<<<<<<< HEAD
+	 before_filter :authenticate_user!
+=======
 	before_filter :authenticate_user!
 	before_action :set_booking, only: [:edit, :update, :destroy]
 	before_action :validate_booking, olny: [:create, :update]
+>>>>>>> 5c174cbaf21ffbf955c555acf75e79d26f85c0f3
 	def index
 		@bookings = current_user.admin? ? Booking.all : Booking.find_all_by_user_id(current_user)
 		#binding.pry
@@ -21,7 +25,7 @@ class BookingsController < ApplicationController
 	def edit
 	end
 	def update
-		# binding.pry
+		binding.pry
 		if @booking.update(booking_params)
 			redirect_to '/', notice: 'Booking successfully edited !!!'
 		end
