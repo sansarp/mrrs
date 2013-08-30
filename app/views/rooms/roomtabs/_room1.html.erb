@@ -1,14 +1,36 @@
 Here are the bookings for Room 1!!
 <table class="table table-hover">
 <th>S.no</th>
+<% if current_user %>
+	<th>Booked by</th>
+	<th>Title</th>
+	<th>Description</th>
+<%end %>
 <th>Start Time</th> 
 <th>End Time</th>
 	
 	<% @room1.each_with_index do |room, i| %>
   <tr>
   	<td><%= i+1 %></td>
-    <td><%= room.start_time %></td>
-    <td><%= room.end_time %></td>
+
+    <% if current_user %>
+    <td>
+    	lsd
+    </td>
+    <td>
+    	asdf
+    </td>
+     <td>
+    	mmmm
+    </td>
+    <% end %>
+   
+    <td><% datetime1 = room.start_time %>
+    	<%= datetime1.to_formatted_s(:short) %>
+    </td>
+    <td><% datetime2 = room.end_time %>
+    	<%= datetime2.to_formatted_s(:short)%>
+    </td>
   </tr>
   <% end %>
 </table>
