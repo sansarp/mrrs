@@ -15,13 +15,13 @@ Here are the bookings for Room 1!!
 
     <% if current_user %>
     <td>
-    	lsd
+    	<%= current_user.name%>
     </td>
     <td>
-    	asdf
+    	<%= room.title%>
     </td>
      <td>
-    	mmmm
+    	<%= room.description%>
     </td>
     <% end %>
    

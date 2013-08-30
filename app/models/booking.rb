@@ -17,7 +17,7 @@ def date_validate()
     elsif self.start_time.to_i >= self.end_time.to_i  
     	errors.add(:start_time,"End time must be after the start time")
     else
-    	boolking_overlap       
+    	booking_overlap       
  	end
  	
 end
