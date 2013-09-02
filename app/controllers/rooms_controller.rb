@@ -50,12 +50,20 @@ class RoomsController < ApplicationController
   end
 
   def dashboard
-    @room1 = Booking.where(:room_id => 1).order('created_at DESC') 
-    @room2 = Booking.where(:room_id => 2).order('created_at DESC') 
-    @room3 = Booking.where(:room_id => 3).order('created_at DESC') 
-    @room4 = Booking.where(:room_id => 4).order('created_at DESC')
     @booking = Booking.new
     @bookings = current_user.admin? ? Booking.all : Booking.find_all_by_user_id(current_user)
+    @rooms = Room.all
+    @croom = []
+    counter = 0
+    @rooms.each do |room|
+      @croom[room.id] = Booking.where(:room_id => room.id).where("end_time > ?",Time.now).order('created_at DESC')
+      counter +=1
+    end
+    #binding.pry
+    # @room1 = Booking.where(:room_id => 1).order('created_at DESC') 
+    # @room2 = Booking.where(:room_id => 2).order('created_at DESC') 
+    # @room3 = Booking.where(:room_id => 3).order('created_at DESC') 
+    # @room4 = Booking.where(:room_id => 4).order('created_at DESC')
   end
 
    private

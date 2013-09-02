@@ -1,22 +1,33 @@
 	<div class="tabbable">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#pane1" data-toggle="tab">Room 1</a></li>
+
+
+    <% @rooms.each_with_index do |room, index|
+      if index == 0 %>
+        <li class="active"><a href="#pane<%=room.id%>" data-toggle="tab"><%= room.name %></a></li>
+      <% else %>
+        <li><a href='#pane<%=room.id%>' data-toggle="tab"><%=room.name%></a></li>
+      <% end  %>
+    <% end %>
+    <!--
     <li><a href="#pane2" data-toggle="tab">Room 2</a></li>
     <li><a href="#pane3" data-toggle="tab">Room 3</a></li>
     <li><a href="#pane4" data-toggle="tab">Room 4</a></li>
+  -->
   </ul>
   <div class="tab-content">
-    <div id="pane1" class="tab-pane active">
-  		<%= render :partial => 'rooms/roomtabs/room1' %>
-    </div>
-    <div id="pane2" class="tab-pane">
-      <%= render :partial => 'rooms/roomtabs/room2' %>
-    </div>
-    <div id="pane3" class="tab-pane">
-       <%= render :partial => 'rooms/roomtabs/room3' %>
-    </div>
-    <div id="pane4" class="tab-pane">
-       <%= render :partial => 'rooms/roomtabs/room4' %>
-    </div>
+    <% @rooms.each_with_index do |room, index|
+      if index == 0 %>
+        <div id="pane<%=room.id%>" class="tab-pane active">
+          <%= render :partial => 'rooms/roomtabs/roompartial', :locals => { :tab_id => room.id } %>
+        </div>
+      <% else %>
+        <div id="pane<%=room.id%>" class="tab-pane">
+          <%= render :partial => 'rooms/roomtabs/roompartial', :locals => { :tab_id => room.id } %>
+        </div>
+      <% end %>
+    <% end %>
+    
+   
   </div><!-- /.tab-content -->
 </div><!-- /.tabbable -->

@@ -24,6 +24,9 @@ class BookingsController < ApplicationController
 		# binding.pry
 		if @booking.update(booking_params)
 			redirect_to '/', notice: 'Booking successfully edited !!!'
+		else
+			#redirect_to new_booking_path, alert: 'something'
+			render 'edit', alert: 'something'
 		end
 	end
 	def destroy

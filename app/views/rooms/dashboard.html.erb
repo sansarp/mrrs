@@ -1,17 +1,11 @@
 <div id="dashboard_left">
-<%= render :partial => 'rooms/roombookedlist' %>
+<%= render :partial => 'roombookedlist' %>
 </div>
 
 <div id="dashboard_right">
   <div id="dright_top">
-    <h4>Booking list</h4>
-        <% @bookings.each do |booking| %>
-        <b><%=booking.title%></b> <%=booking.description%> from 
-        <%=booking.start_time%> to <%=booking.end_time%> in
-        <%=booking.room.name%> by <%=booking.user.name%>
-        *<%= link_to 'Change', edit_booking_path(booking) %>
-        *<%= link_to 'Cancel', booking, method: :delete, data: { confirm: 'Really?' } %> <br />
-        <%end%>
+    <b>My Bookings</b><br>
+	<%= render :partial => 'bookings/mybookings' %>
   </div>
   <div id="dright_down">
   <h4>Booking form</h4>

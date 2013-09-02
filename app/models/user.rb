@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
  	validates :email, uniqueness: true
   validate  :email_regex
   def email_regex
@@ -15,4 +15,5 @@ class User < ActiveRecord::Base
     end
   end
 
+   
 end
