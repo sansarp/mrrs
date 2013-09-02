@@ -1,5 +1,7 @@
 	<div class="tabbable">
   <ul class="nav nav-tabs">
+
+
     <% @rooms.each_with_index do |room, index|
       if index == 0 %>
         <li class="active"><a href="#pane<%=room.id%>" data-toggle="tab"><%= room.name %></a></li>

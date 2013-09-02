@@ -7,5 +7,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-   has_many :bookings
+   has_many :bookings, dependent: :destroy
 end

@@ -1,5 +1,5 @@
 class Room < ActiveRecord::Base
-	has_many :bookings
+	has_many :bookings, dependent: :destroy
 	validates :name, presence: :true, uniqueness: true
 	validates :description, presence: :true
 	validates :capacity, numericality: { only_integer: true,  

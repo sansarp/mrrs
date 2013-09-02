@@ -6,7 +6,7 @@ class SessionsController < Devise::SessionsController
     @croom = []
     counter = 0
     @rooms.each do |room|
-      @croom[counter] = Booking.where(:room_id => room.id).order('created_at DESC')
+      @croom[room.id] = Booking.where(:room_id => room.id).order('created_at DESC')
       counter +=1
     end
   	# binding.pry

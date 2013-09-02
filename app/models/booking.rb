@@ -12,19 +12,33 @@ def date_validate()
  	 	errors.add(:title, "Can't be blank for now")
  	end
  	#binding.pry
- 	if Time.now.to_i - self.start_time.to_i >= 10*60
- 		errors.add(:start_time,"you cant select the history time")    
-    elsif self.start_time.to_i >= self.end_time.to_i  
-    	errors.add(:start_time,"End time must be after the start time")
-    else
-    	booking_overlap       
+  if self.id
+    current_db_data = Booking.find(self.id)
+    if self.start_time < current_db_data.start_time
+        errors.add(:start_time,"you cant select the history time")    
+    end
+  else
+    if Time.now.to_i - self.start_time.to_i >= 10*60
+        errors.add(:start_time,"you cant select the history time")  
+    end
+  end
+ 	 		  
+  if self.start_time.to_i >= self.end_time.to_i  
+   	errors.add(:start_time,"End time must be after the start time")
+  else
+   	booking_overlap       
  	end
  	
 end
 
 def booking_overlap()
-	bookings = Booking.all
+  check_time = self.start_time.to_i-10*60
+	bookings = Booking.where("room_id = ?", self.room_id).where("start_time > ?",Time.at(check_time))
+  #binding.pry
 	bookings.each do |booking|
+    if(booking.id == self.id)
+      next
+    end
 		start = booking.start_time.to_i
 		stop = booking.end_time.to_i
 		#binding.pry

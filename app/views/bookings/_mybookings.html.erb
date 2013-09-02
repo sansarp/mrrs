@@ -1,0 +1,8 @@
+<% @bookings.each do |booking| %>
+	
+	<b><%=booking.title%></b> <%=booking.description%> from 
+	<%=booking.start_time%> to <%=booking.end_time%> in
+	<%=booking.room.name%> by <%=booking.user.name%>
+	*<%= link_to 'Change', edit_booking_path(booking) %>
+    *<%= link_to 'Cancel', booking, method: :delete, data: { confirm: 'Really?' } %> <br />
+<%end%>
