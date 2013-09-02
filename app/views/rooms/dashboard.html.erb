@@ -1,22 +1,21 @@
-	<div class="tabbable">
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#pane1" data-toggle="tab">Room 1</a></li>
-    <li><a href="#pane2" data-toggle="tab">Room 2</a></li>
-    <li><a href="#pane3" data-toggle="tab">Room 3</a></li>
-    <li><a href="#pane4" data-toggle="tab">Room 4</a></li>
-  </ul>
-  <div class="tab-content">
-    <div id="pane1" class="tab-pane active">
-  		<%= render :partial => 'rooms/roomtabs/room1' %>
-    </div>
-    <div id="pane2" class="tab-pane">
-      <%= render :partial => 'rooms/roomtabs/room2' %>
-    </div>
-    <div id="pane3" class="tab-pane">
-       <%= render :partial => 'rooms/roomtabs/room3' %>
-    </div>
-    <div id="pane4" class="tab-pane">
-       <%= render :partial => 'rooms/roomtabs/room4' %>
-    </div>
-  </div><!-- /.tab-content -->
-</div><!-- /.tabbable -->
+<div id="dashboard_left">
+<%= render :partial => 'rooms/roombookedlist' %>
+</div>
+
+<div id="dashboard_right">
+  <div id="dright_top">
+    <h4>Booking list</h4>
+        <% @bookings.each do |booking| %>
+        <b><%=booking.title%></b> <%=booking.description%> from 
+        <%=booking.start_time%> to <%=booking.end_time%> in
+        <%=booking.room.name%> by <%=booking.user.name%>
+        *<%= link_to 'Change', edit_booking_path(booking) %>
+        *<%= link_to 'Cancel', booking, method: :delete, data: { confirm: 'Really?' } %> <br />
+        <%end%>
+  </div>
+  <div id="dright_down">
+  <h4>Booking form</h4>
+  <%= render :partial => 'bookings/form'%>
+  </div>
+</div>
+ 

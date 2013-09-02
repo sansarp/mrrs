@@ -54,6 +54,8 @@ class RoomsController < ApplicationController
     @room2 = Booking.where(:room_id => 2).order('created_at DESC') 
     @room3 = Booking.where(:room_id => 3).order('created_at DESC') 
     @room4 = Booking.where(:room_id => 4).order('created_at DESC')
+    @booking = Booking.new
+    @bookings = current_user.admin? ? Booking.all : Booking.find_all_by_user_id(current_user)
   end
 
    private
