@@ -1,8 +1,21 @@
-<% @bookings.each do |booking| %>
+<table class="table table-striped">
+<th>S.no</th>
+<th>Title</th> 
+<th>Description</th>
+<th>Start time</th>
+<th>End time</th>
+<th colspan="2">Actions</th>
 	
-	<b><%=booking.title%></b> <%=booking.description%> from 
-	<%=booking.start_time%> to <%=booking.end_time%> in
-	<%=booking.room.name%> by <%=booking.user.name%>
-	*<%= link_to 'Change', edit_booking_path(booking) %>
-    *<%= link_to 'Cancel', booking, method: :delete, data: { confirm: 'Really?' } %> <br />
-<%end%>
+	<% @bookings.each_with_index do |booking, i| %>
+  <tr class="warning">
+  	<td><%= i+1 %></td>
+    <td><b><%=booking.title%></b></td>
+    <td><%=booking.description%></td>
+    <td><%=booking.start_time%></td>
+    <td><%=booking.end_time%></td>
+    
+    <td><%= link_to 'Change', edit_booking_path(booking) %></td>
+    <td><%= link_to 'Cancel', booking, method: :delete, data: { confirm: 'Really?' } %></td>
+  </tr>
+  <% end %>
+</table>

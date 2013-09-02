@@ -1,15 +1,13 @@
-<div id="dashboard_left">
+<div id="dashboard_roomlist">
 <%= render :partial => 'roombookedlist' %>
 </div>
 
-<div id="dashboard_right">
-  <div id="dright_top">
+<div id="dashboard_bookedlist">
     <b>My Bookings</b><br>
-	<%= render :partial => 'bookings/mybookings' %>
-  </div>
-  <div id="dright_down">
+	<%= render :partial => 'bookings/mybookings' %> 
+</div>
+<div id="newbooking_form">
   <h4>Booking form</h4>
   <%= render :partial => 'bookings/form'%>
-  </div>
 </div>
  
