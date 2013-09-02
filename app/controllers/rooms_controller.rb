@@ -50,6 +50,7 @@ class RoomsController < ApplicationController
   end
 
   def dashboard
+    @booking = Booking.new
     @bookings = current_user.admin? ? Booking.all : Booking.find_all_by_user_id(current_user)
     @rooms = Room.all
     @croom = []
