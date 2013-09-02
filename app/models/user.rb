@@ -6,12 +6,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  	has_many :bookings
+  has_many :bookings
  	validates :email, uniqueness: true
   validate  :email_regex
   def email_regex
     if email.present? and not email.match( /\A([^@\s]+)@lftechnology.com\Z/)
-      errors.add :email, "Email should be in format username@lftechnology.com"
+      errors.add :email, "should have domain as: @lftechnology.com"
     end
   end
 
