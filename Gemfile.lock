@@ -209,7 +209,6 @@ DEPENDENCIES
   jquery-rails
   launchy
   less-rails (>= 2.3.2)
-  mysql2
   pg
   pry-rails
   rails (= 4.0.0)
