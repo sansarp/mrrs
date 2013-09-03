@@ -22,7 +22,3 @@ test:
   password: 
   socket: /var/run/mysqld/mysqld.sock
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: mrrs_test
