@@ -1,3 +1,6 @@
+<%if @croom[tab_id].empty?%>
+  This room is free <br /><br/>
+<%else%>
 <table class="table table-hover">
 <th>S.no</th>
 <% if current_user %>
@@ -33,5 +36,5 @@
   </tr>
   <% end %>
 </table>
- 
-  <% end %>
+<%end%> 
+  
