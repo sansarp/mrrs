@@ -8,6 +8,7 @@
     <th>Booked By</th>
   <%end%>
   <th>Description</th>
+  <th>Room</th>
   <th>Start time</th>
   <th>End time</th>
   <th colspan="2">Actions</th>
@@ -20,6 +21,7 @@
         <td><%=booking.user.name%></td>
       <%end%>
       <td><%=booking.description%></td>
+      <td><%=booking.room.name%></td>
       <td><%=booking.start_time.to_formatted_s(:short)%></td>
       <td><%=booking.end_time.to_formatted_s(:short)%></td>
       
