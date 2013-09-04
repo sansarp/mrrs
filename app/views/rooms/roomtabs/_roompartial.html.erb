@@ -10,6 +10,11 @@
 <%end %>
 <th>Start Time</th> 
 <th>End Time</th>
+<% if current_user %>
+  <% if current_user.admin? %>
+    <th colspan="2">Actions</th>
+  <% end %>
+<% end %>
 	
 	<% @croom[tab_id].each_with_index do |room, i| %>
   <tr>
@@ -33,6 +38,14 @@
     <td><% datetime2 = room.end_time %>
     	<%= datetime2.to_formatted_s(:short)%>
     </td>
+    <% if current_user %>
+      <% if current_user.admin? %>
+        <td>
+          <%= link_to 'Change', edit_booking_path(room) %>
+          <%= link_to 'Cancel', room, method: :delete, data: { confirm: 'Really?' } %>
+        </td>
+      <% end %>
+    <%end%>
   </tr>
   <% end %>
 </table>
