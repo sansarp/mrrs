@@ -1,3 +1,4 @@
+<%= javascript_include_tag "jquery.shorten.1.0" %>
 <%if @croom[tab_id].empty?%>
   <div class="for_info">This room is free!! </div>
 <%else%>
@@ -27,8 +28,10 @@
     <td>
     	<%= room.title%>
     </td>
-     <td>
+    <td style="width:220px">
+    <div class="description">
     	<%= room.description%>
+    </div>
     </td>
     <% end %>
    
@@ -50,4 +53,12 @@
   <% end %>
 </table>
 <%end%> 
+
+<script type="text/javascript">
+$(".description").shorten({
+    "showChars" : 30,
+    "moreText"  : "more",
+    "lessText"  : "less",
+});
+</script>
   
