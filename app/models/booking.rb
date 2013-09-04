@@ -28,6 +28,13 @@ def date_validate()
   else
    	booking_overlap       
  	end
+  if self.room_id
+    this_room = Room.find(self.room_id)
+    #binding.pry
+    if this_room.status == false
+      errors.add(:room_id,"The room is currently unavailable.")
+    end
+  end
  	
 end
 
