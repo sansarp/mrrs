@@ -4,9 +4,9 @@
 
     <% @rooms.each_with_index do |room, index|
       if index == 0 %>
-        <li class="active"><a href="#pane<%=room.id%>" data-toggle="tab"><%= room.name %></a></li>
+        <li class="active"><a href="#pane<%=room.id%>" data-toggle="tab"><%= room.name %><%=room.status? ? '' : '(disabled)'%></a></li>
       <% else %>
-        <li><a href='#pane<%=room.id%>' data-toggle="tab"><%=room.name%></a></li>
+        <li><a href='#pane<%=room.id%>' data-toggle="tab"><%=room.name%><%=room.status? ? '' : '(disabled)'%></a></li>
       <% end  %>
     <% end %>
     <!--
