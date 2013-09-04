@@ -6,9 +6,9 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: mrrsdev
+  database: mrrs_dev
   username: root
-  password: fhf
+  password: 
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -17,13 +17,7 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: mrrstest
+  database: mrrs_test
   username: root
-  password: fhf
+  password: 
   socket: /var/run/mysqld/mysqld.sock
-
-production:
-  adapter: mysql2
-  database: db/production.mysql
-  pool: 5
-  timeout: 5000
