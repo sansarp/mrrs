@@ -15,7 +15,7 @@ Mrrs::Application.routes.draw do
   resources :rooms
   resources :bookings
  # root 'bookings#index'
- root 'rooms#index'
+ root 'rooms#dashboard'
  get 'dashboard', to: 'rooms#dashboard', as: :dashboard  # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

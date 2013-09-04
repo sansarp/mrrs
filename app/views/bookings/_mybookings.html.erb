@@ -1,21 +1,31 @@
-<table class="table table-striped">
-<th>S.no</th>
-<th>Title</th> 
-<th>Description</th>
-<th>Start time</th>
-<th>End time</th>
-<th colspan="2">Actions</th>
-	
-	<% @bookings.each_with_index do |booking, i| %>
-  <tr class="warning">
-  	<td><%= i+1 %></td>
-    <td><b><%=booking.title%></b></td>
-    <td><%=booking.description%></td>
-    <td><%=booking.start_time%></td>
-    <td><%=booking.end_time%></td>
-    
-    <td><%= link_to 'Change', edit_booking_path(booking) %></td>
-    <td><%= link_to 'Cancel', booking, method: :delete, data: { confirm: 'Really?' } %></td>
-  </tr>
-  <% end %>
-</table>
+<% if @bookings.empty? %>
+  You have no bookings
+<% else %>
+  <table class="table table-striped">
+  <th>S.no</th>
+  <th>Title</th> 
+  <%if current_user.admin? %>
+    <th>Booked By</th>
+  <%end%>
+  <th>Description</th>
+  <th>Start time</th>
+  <th>End time</th>
+  <th colspan="2">Actions</th>
+  	
+  	<% @bookings.each_with_index do |booking, i| %>
+    <tr class="warning">
+    	<td><%= i+1 %></td>
+      <td><b><%=booking.title%></b></td>
+      <%if current_user.admin? %>
+        <td><%=booking.user.name%></td>
+      <%end%>
+      <td><%=booking.description%></td>
+      <td><%=booking.start_time.to_formatted_s(:short)%></td>
+      <td><%=booking.end_time.to_formatted_s(:short)%></td>
+      
+      <td><%= link_to 'Change', edit_booking_path(booking) %></td>
+      <td><%= link_to 'Cancel', booking, method: :delete, data: { confirm: 'Really?' } %></td>
+    </tr>
+    <% end %>
+  </table>
+<%end%>

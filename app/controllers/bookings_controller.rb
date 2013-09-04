@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
 	def create
 		@booking = current_user.bookings.build(booking_params)
 		if @booking.save
-			redirect_to '/', notice: 'Room booked !!!'
+			redirect_to '/dashboard', notice: 'Room booked !!!'
 		else
 			#redirect_to new_booking_path, alert: 'something'
 			render 'new', alert: 'something'
@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
 	def update
 		# binding.pry
 		if @booking.update(booking_params)
-			redirect_to '/', notice: 'Booking successfully edited !!!'
+			redirect_to '/dashboard', notice: 'Booking successfully edited !!!'
 		else
 			#redirect_to new_booking_path, alert: 'something'
 			render 'edit', alert: 'something'
@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
 	end
 	def destroy
 		if @booking.destroy
-			redirect_to '/', notice: 'Booking cancelled !!'
+			redirect_to '/dashboard', notice: 'Booking cancelled !!'
 		end
 	end
 
