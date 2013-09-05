@@ -47,7 +47,12 @@ class RoomsController < ApplicationController
   end
 
   def dashboard
-    @bookings = current_user.admin? ? Booking.all : Booking.find_all_by_user_id(current_user)
+    if current_user.admin?
+      #@bookings = current_user.admin? ? Booking.all : Booking.find_all_by_user_id(current_user)
+      @all_bookings = Booking.all
+    end
+    #@bookings = Booking.find_all_by_user_id(current_user)
+    @bookings = Booking.where(:user_id => current_user.id).where("end_time > ?",Time.now).order('start_time DESC')
     @rooms = Room.all
     @croom = []
     @rooms.each do |room|

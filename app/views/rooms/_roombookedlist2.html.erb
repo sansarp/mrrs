@@ -1,0 +1,31 @@
+	<div class="tabbable">
+  <ul class="nav nav-tabs">
+
+    <li class="active"><a href="#panebookings" data-toggle="tab">My bookings</a></li>
+    <% @rooms.each do |room| %>
+      <li>
+        <a href='#pane<%=room.id%>' data-toggle="tab">
+          <%=room.name%><%=room.status? ? '' : '(disabled)'%>
+        </a>
+      </li>
+    <% end %>
+    <!--
+    <li><a href="#pane2" data-toggle="tab">Room 2</a></li>
+    <li><a href="#pane3" data-toggle="tab">Room 3</a></li>
+    <li><a href="#pane4" data-toggle="tab">Room 4</a></li>
+  -->
+  </ul>
+  <div class="tab-content">
+    <div id="panebookings" class="tab-pane active">
+      <%= render :partial => 'bookings/mybookings'%>
+    </div>
+    <% @rooms.each_with_index do |room| %>
+      <div id="pane<%=room.id%>" class="tab-pane">
+          <%= render :partial => 'rooms/roomtabs/roompartial', :locals => { :tab_id => room.id } %>
+      </div>
+    <% end %>
+    
+    
+   
+  </div><!-- /.tab-content -->
+</div><!-- /.tabbable -->
