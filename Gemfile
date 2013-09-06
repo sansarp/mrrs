@@ -6,6 +6,7 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'simple_form'
+gem 'omniauth-google-oauth2'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -20,7 +21,7 @@ group :development, :test do
 	gem 'annotate'
 end
 group :production do
-	 gem 'pg'
+	 #gem 'pg'
 	 
 end
 group :test do
