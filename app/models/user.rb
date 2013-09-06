@@ -18,9 +18,17 @@ class User < ActiveRecord::Base
   end
 
    def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
+    checkmail = access_token.info.email
+    if checkmail.present? and not checkmail.match( /\A([^@\s]+)@lftechnology.com\Z/) ==false
+      #errors.add :email, "should have domain as: @lftechnology.com"
+     # throw new Google_AuthException('should have domain as: @lftechnology.com'); 
+       # render :file => "../public/404.html", :notice => 404
+      # redirect_to root_path, :notice => "should have domain as: @lftechnology.com"
+       # redirect_to 'rooms/failpage'
+    end
     data = access_token.info
     user = User.where(:email => data["email"]).first
-    #binding.pry
+    # binding.pry
     unless user
 
         user = User.create(name: data["name"],

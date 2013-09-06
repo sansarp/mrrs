@@ -17,6 +17,7 @@ Mrrs::Application.routes.draw do
   resources :bookings
  # root 'bookings#index'
  root 'rooms#dashboard'
+ get 'failpage', to: 'rooms#failpage', as: :failpage 
  get 'dashboard', to: 'rooms#dashboard', as: :dashboard  # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
