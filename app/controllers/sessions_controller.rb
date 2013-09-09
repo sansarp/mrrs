@@ -7,4 +7,7 @@ class SessionsController < Devise::SessionsController
     end
     super
   end
+  
+	def failpage
+	end
 end 
