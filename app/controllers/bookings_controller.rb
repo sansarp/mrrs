@@ -34,7 +34,7 @@ class BookingsController < ApplicationController
 			redirect_to '/', notice: 'Booking cancelled !!'
 		end
 	end
-
+	
 	private
 	def validate_booking
 		

@@ -45,8 +45,10 @@
           </div>
           <%= link_to image_tag("/images/logo.png", alt: "LF MRRS"), '/' %>
           <% if user_signed_in? %>
-          <div class = "signout_link">  
-            <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete,data: { confirm: 'Really??' },title: "sign out"%>
+
+          <div class = "signout_link">
+          <%=current_user.name%>  
+            (<i><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete,data: { confirm: 'Really??' },title: "sign out"%></i>)
           </div>
           <% end %>
 
